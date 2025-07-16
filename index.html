@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versumdata</title>
+    <meta name="description" content="Versumdata">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Estilos básicos para el cuerpo y el párrafo */
+body {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #00ff00; /* Color verde de Matrix */
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Estilos para el span 'versumdata' */
+.versumdata {
+    display: inline-block; /* Importante para que width funcione */
+    overflow: hidden; /* Oculta el texto que excede el ancho */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    border-right: 0.15em solid #00ff00; /* Cursor parpadeante */
+    animation:
+        typing 3s steps(10, end), /* Animación de escritura */
+        blink-caret .75s step-end infinite; /* Animación del cursor */
+}
+
+/* Keyframes para la animación de escritura */
+@keyframes typing {
+    from { width: 0 } /* Empieza con ancho 0 */
+    to { width: 10ch } /* Ancho final, 10 caracteres para "VersumData" */
+}
+
+/* Keyframes para la animación del cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent } /* Cursor invisible */
+    50% { border-color: #00ff00 } /* Cursor visible */
+}
+/* --- Nuevos estilos para el span 'vs' --- */
+.vs {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #00ff00; /* Cursor verde para 'vs' */
+    opacity: 1; /* Visible al inicio */
+    /* Animaciones encadenadas para 'vs' */
+    animation:
+        vs-typing 1s steps(2, end) forwards, /* 1. Escribir 'vs' (2 caracteres) */
+        vs-neon-blink 2s 1s forwards, /* 2. Parpadeo neón (empieza 1s después de typing) */
+        vs-fade-out 0.5s 3s forwards; /* 3. Desvanecer y apagar (empieza 3s después del inicio total) */
+}
+
+/* Keyframes para la escritura de 'vs' */
+@keyframes vs-typing {
+    from { width: 0 }
+    to { width: 2ch } /* Ancho para "vs" (2 caracteres) */
+}
+
+/* Keyframes para el efecto neón de 'vs' */
+@keyframes vs-neon-blink {
+    0%, 100% {
+        color: #00ff00; /* Color verde neón */
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Resplandor neón */
+        border-color: transparent; /* Oculta el cursor durante el parpadeo neón */
+    }
+    50% {
+        color: #00cc00; /* Color ligeramente más oscuro */
+        text-shadow: none; /* Apaga el resplandor */
+    }
+}
+
+/* Keyframes para desvanecer 'vs' */
+@keyframes vs-fade-out {
+    from { opacity: 1; width: 2ch; }
+    to { opacity: 0; width: 0; } /* Se desvanece y colapsa su ancho */
+}
+
+/* --- Modificaciones para el span 'versumdata' --- */
+.versumdata {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #00ff00; /* Cursor naranja para 'VersumData' */
+    opacity: 0; /* Inicialmente oculto */
+    width: 0; /* Inicialmente sin ancho */
+    /* Animaciones para 'VersumData' */
+    animation:
+        versumdata-appear 0.1s 3.5s forwards, /* 1. Aparecer (muy rápido, después de que 'vs' termine) */
+        versumdata-typing 3s steps(11, end) 3.6s forwards, /* 2. Escribir 'VersumData' (empieza poco después de aparecer) */
+        versumdata-blink-caret .75s step-end infinite 3.6s, /* 3. Parpadeo del cursor */
+        vs-neon-blink 2s 8s forwards, /* 2. Parpadeo neón (empieza 1s después de typing) */
+        vs-fade-out 0.5s 11s forwards; /* 3. Desvanecer y apagar (empieza 3s después del inicio total) */
+}
+
+/* Keyframes para que 'versumdata' se haga visible */
+@keyframes versumdata-appear {
+    from { opacity: 0; width: 0; }
+    to { opacity: 1; width: 0; } /* Solo lo hace visible, el typing le dará ancho */
+}
+
+/* Renombramos y ajustamos los keyframes existentes para 'versumdata' */
+@keyframes versumdata-typing {
+    from { width: 0 }
+    to { width: 11ch } /* Ancho para "VersumData" (11 caracteres) */
+}
+
+@keyframes versumdata-blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00ff00 }
+}
+
+.nothing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #00ff00; /* Cursor naranja para 'VersumData' */
+    opacity: 0; /* Inicialmente oculto */
+    width: 0; /* Inicialmente sin ancho */
+    /* Animaciones para 'VersumData' */
+    animation:
+        versumdata-appear 0.1s 12s forwards, /* 1. Aparecer (muy rápido, después de que 'vs' termine) */
+        nothing-typing 3s steps(16, end) 12.6s forwards, /* 2. Escribir 'VersumData' (empieza poco después de aparecer) */
+        versumdata-blink-caret .75s step-end infinite 12.6s, /* 3. Parpadeo del cursor */
+        vs-neon-blink 2s 18s infinite; /* 2. Parpadeo neón (empieza 5s después de typing) */
+}
+
+/* Renombramos y ajustamos los keyframes existentes para 'versumdata' */
+@keyframes nothing-typing {
+    from { width: 0 }
+    to { width: 16ch } /* Ancho para "Nada que mostrar" (16 caracteres) */
+}
+</style>
+<body>
+    <span class="vs">v></span>
+    <span class="versumdata">Versumdata></span>
+    <span class="nothing">Nada que mostrar</span>
+</body>
